@@ -1,0 +1,29 @@
+{
+    "name": "pingpong-modules\/seller",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Seller\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\Seller\\Repositories\\Contracts\\SellerRepositoryInterface",
+            "Modules\\Seller\\Repositories\\Contracts\\SellerEnquiryRepositoryInterface",
+            "Modules\\Seller\\Repositories\\Contracts\\SellerVerificationRepositoryInterface",
+            "Modules\\Seller\\Repositories\\Contracts\\SellerHobbyVerificationRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\Seller\\Repositories\\Eloquent\\SellerRepository",
+            "Modules\\Seller\\Repositories\\Eloquent\\SellerEnquiryRepository",
+            "Modules\\Seller\\Repositories\\Eloquent\\SellerVerificationRepository",
+            "Modules\\Seller\\Repositories\\Eloquent\\SellerHobbyVerificationRepository"
+        ]
+    }
+}

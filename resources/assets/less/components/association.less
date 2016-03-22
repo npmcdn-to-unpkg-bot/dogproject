@@ -1,0 +1,162 @@
+.organisation-header {
+  padding-top: 0;
+  height: 720px;
+
+  h1 {
+    font-weight: 600;
+  }
+
+  h2 {
+    font-weight: 400;
+    padding:0;
+  }
+
+  .header-social {
+
+    li {
+
+      padding:0 10px;
+
+      a{
+        color: @white;
+        .border-radius(10px);
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 10px 25px 10px 10px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        .font-formatting(12px,600,20px);
+        background-color: @grey-background-5;
+        .box-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+
+        &.facebook {
+          background-color: @facebook;
+        }
+
+        &.twitter {
+          background-color: @twitter;
+        }
+        &.pinterest {
+          background-color: @pinterest;
+        }
+
+
+        i {
+          margin-right:25px;
+          font-size: 20px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .header-img {
+
+    li {
+      padding: 0 10px;
+
+      img {
+
+        width: 160px;
+      }
+    }
+  }
+
+  .header-contact-form {
+    background-color: @grey-background-1;
+    height: 720px;
+    overflow: auto;
+
+    .contact-image {
+      padding:30px;
+      text-align: center;
+      background: @white;
+
+      img {
+        width: 160px;
+      }
+    }
+
+    .form-control {
+      height:30px;
+    }
+
+    textarea {
+      max-height: 100px !important;
+      height:100px !important;
+    }
+
+    .btn-default {
+      height: 35px;
+      padding:0 25px;
+      .font-formatting(14px,700,14px);
+    }
+
+    .form-section {
+      margin:0;
+    }
+  }
+}
+
+.organisation-dogs {
+
+  label {
+    margin-bottom: 30px;
+    .font-formatting(14px,600,14px);
+  }
+
+  .media {
+    padding-bottom: 30px;
+  }
+
+  .media-left {
+
+    padding-right:30px;
+
+    img {
+
+      width:100px;
+    }
+  }
+  .media-heading {
+
+    h4 {
+      color: @green-text-1;
+      .font-formatting(16px,600,16px);
+    }
+
+    p {
+      .font-formatting(14px,400,14px);
+    }
+
+    a {
+      .font-formatting(12px,400,12px);
+    }
+  }
+
+  &.bordered {
+    padding:30px 0;
+    border-top: 1px solid @grey-border-1;
+  }
+}
+.organisation-key-members {
+
+  ul {
+    margin:0;
+    padding:0;
+  }
+}
+
+.organisation-profile-page {
+
+  .page-dog {
+    padding:30px 0;
+    border-bottom: 1px solid @grey-border-1;
+  }
+
+  .rescue-note {
+    height: 50px;
+    line-height: 50px;
+    color: @grey-text-5;
+  }
+}

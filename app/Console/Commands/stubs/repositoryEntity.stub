@@ -1,0 +1,19 @@
+<?php
+
+namespace DummyNamespace;
+
+use {{InterfaceNamespace}}\DummyClassInterface;
+use {{EntityNamespace}}\{{entity}};
+
+class DummyClass implements DummyClassInterface
+{
+    protected ${{property}};
+
+        public function __construct({{entity}} ${{entity}})
+        {
+            $this->{{property}} = ${{entity}};
+        }
+
+        {{implementation}}
+
+}

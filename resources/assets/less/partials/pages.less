@@ -1,0 +1,442 @@
+.page-headline {
+
+  color: @green-text-1;
+  padding: 30px 0;
+  border-bottom: 1px dashed @greyGreen;
+  line-height: 24px;
+
+  p {
+    margin: 0;
+    line-height: 24px;
+  }
+
+  h1 {
+    .font-formatting(24px, 700, 24px);
+  }
+
+  .page-headline-addon {
+
+    color: #111111;
+    .font-formatting(11px, 400, 24px);
+
+    * {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.page-section {
+  padding: 30px 0;
+
+  &.dash-border {
+    border-top: 1px dashed @greyGreen;
+  }
+
+  &.solid-border {
+    border-top: 1px solid @grey-border-1;
+  }
+
+  .page-section-headline {
+
+    * {
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  &.no-top-p {
+    padding:0 0 30px;
+  }
+
+  &.with-v-p {
+    padding:30px;
+  }
+}
+
+.page-section-headline {
+
+  h4 {
+    padding: 10px 0;
+    text-transform: uppercase;
+    .font-formatting(10px, 600, 10px);
+  }
+}
+
+.page-form {
+  padding: 30px 0;
+
+  .btn-default {
+    .font-formatting(20px, 800, 20px);
+    height: 50px;
+
+    &.btn-sm {
+      padding:0 15px;
+      height:25px;
+      .font-formatting(12px,700);
+    }
+  }
+
+  .btn-note {
+    .font-formatting(12px, 400, 50px);
+    font-style: italic;
+    margin-left: 50px;
+  }
+}
+
+.page-sidebar {
+
+  &.grey {
+
+    background-color: @grey-background-1;
+  }
+
+  .page-sidebar-block {
+
+    padding: 30px;
+
+    &.dash-border {
+      border-bottom: 1px dashed @greyGreen;
+    }
+  }
+
+  label {
+    .font-formatting(12px,400,12px);
+    margin-bottom:10px;
+  }
+
+  .form-control {
+    height:40px;
+    .font-formatting(12px,400,12px);
+  }
+
+  textarea {
+    padding:15px;
+    max-width: 100%;
+    height:100px !important;
+  }
+
+  @media (min-width: @screen-sm-min) {
+
+    top: 0;
+    left: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+
+  .btn-default {
+    height:40px;
+    padding:0 25px;
+    .font-formatting(14px,800,14px);
+  }
+}
+
+.page-dog {
+
+  .media-left {
+    padding-right: 30px;
+  }
+
+  .dog-image {
+    width: 160px;
+  }
+
+  .dog-name {
+    color: @green-text-1;
+    .font-formatting(16px, 700, 16px);
+
+    .label {
+      position: absolute;
+      right: 100px;
+      padding: 3px 10px;
+    }
+
+    .dog-price {
+      color: #000;
+      .font-formatting(16px, 400, 16px);
+    }
+  }
+  .dog-location {
+    color: @grey-text-3;
+    .font-formatting(12px, 400);
+  }
+
+  .dog-description {
+
+    * {
+      .font-formatting(14px, 400, 18px);
+    }
+  }
+
+  .dog-details {
+
+    ul {
+      float: left;
+
+      li {
+        height: 25px;
+        line-height: 25px;
+      }
+    }
+  }
+
+  .edit {
+
+    .btn-default {
+      height: 25px;
+      padding: 0 25px;
+      .font-formatting(12px, 600, 12px);
+    }
+  }
+
+  padding-bottom: 30px;
+}
+
+.page-stats {
+  background-color: @grey-background-5;
+  border-bottom: 1px solid @grey-border-1;
+  margin-bottom: 30px;
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  li {
+    box-sizing: border-box;
+    padding: 15px 0 !important;
+    text-transform: uppercase;
+    text-align: center !important;
+    border-right: 1px solid @grey-border-1;
+    .font-formatting(10px, 400, 18px) !important;
+
+    &:last-child {
+      border-right: 0 !important;
+    }
+
+    span {
+      margin-left: 10px;
+      .font-formatting(18px, 400, 18px);
+    }
+  }
+
+  &.listing-stats {
+
+    li {
+      width: 20%;
+    }
+  }
+
+}
+
+.page-overall-ratings {
+
+  li {
+    padding: 15px 0;
+    color: @green-text-1;
+    .font-formatting(16px, 700, 18px);
+    border-bottom: 1px solid @grey-border-1;
+
+    i {
+      .font-formatting(18px, 400, 18px);
+    }
+
+    .overall {
+      color: #000;
+      font-weight: 500;
+      margin-left: 15px;
+    }
+
+    span {
+      outline: none !important;
+    }
+  }
+}
+
+.page-profile {
+
+  .profile-image {
+
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+
+    img {
+      width: 160px;
+    }
+
+    .verification {
+      bottom: 0;
+      right: 70px;
+      position: absolute;
+      color: @green-text-1;
+
+      i {
+        .font-awesome-rounded(60px, @green-text-1, @white);
+        border: 2px solid @white;
+        .font-formatting(30px, 400, 56px);
+      }
+    }
+  }
+
+  .profile-name {
+
+    h4 {
+      color: #000;
+      .font-formatting(24px, 600, 24px);
+    }
+
+    margin-bottom: 15px;
+  }
+
+  .profile-details {
+
+    p {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: @grey-text-3;
+      .font-formatting(12px, 400, 12px);
+    }
+
+    .location {
+      color: #000;
+      .font-formatting(13px, 600, 13px);
+    }
+
+    .verified {
+      text-transform: capitalize;
+      color: @green-text-1;
+    }
+  }
+}
+
+.page-sidebar-navigation {
+
+  .navigation {
+
+    li {
+
+      a {
+
+        color: #000;
+        display: block;
+        padding: 20px 30px;
+        text-decoration: none;
+        .transition(.3s ease-in-out);
+        .font-formatting(14px, 600, 14px);
+        border-left: 3px solid transparent;
+        background-color: @grey-background-2;
+        border-bottom: 1px solid @grey-border-5;
+
+        &:hover,
+        &:focus,
+        &:active {
+
+          background-color: @white;
+          color: @green-text-1;
+          border-left: 3px solid @green-text-1;
+        }
+      }
+    }
+  }
+}
+
+.add-parent-image {
+
+  .add-image {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 600;
+    width: 60px;
+    height: 60px;
+    .border-radius(30px);
+    background-color: #fff;
+    line-height: 60px;
+
+    span {
+      color: @green-text-1;
+      cursor: pointer;
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  }
+
+  .media-body {
+    p {
+      margin: 0;
+      .font-formatting(12px,400,12px);
+    }
+
+    span {
+      .font-formatting(10px,400,10px);
+      color: @grey-text-5;
+    }
+  }
+}
+
+.add-dog-image {
+
+  .add-image {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 600;
+    width: 60px;
+    height: 60px;
+    .border-radius(30px);
+    background-color: @grey-background-6;
+    line-height: 60px;
+    .transition(.3s linear);
+
+    span {
+      color: @white;
+      cursor: pointer;
+    }
+
+    &:hover {
+      background-color: @buttonYellowDarker;
+
+      span {
+        content: 'Add';
+      }
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  }
+
+  .media {
+    float: left;
+  }
+
+  .media-body {
+    p {
+      margin: 0;
+      .font-formatting(12px,400,12px);
+    }
+
+    span {
+      .font-formatting(10px,400,10px);
+      color: @grey-text-5;
+    }
+  }
+}

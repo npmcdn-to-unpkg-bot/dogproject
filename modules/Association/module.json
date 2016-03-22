@@ -1,0 +1,15 @@
+{
+    "name": "Association",
+    "alias": "association",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Association\\Providers\\AssociationServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

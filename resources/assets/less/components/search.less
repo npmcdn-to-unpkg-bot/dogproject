@@ -1,0 +1,163 @@
+.search-page {
+
+  //SEARCH RESULTS
+  .search-results {
+
+    .search-item  {
+
+      padding: 30px 0;
+      border-bottom: 1px solid @grey-border-1;
+
+      // image style
+      .media {
+
+        .media-left {
+
+          padding-right: 30px;
+
+          .img-overlay {
+
+            .border-radius(80px);
+          }
+
+          img {
+            width:160px;
+            border-radius:80px;
+          }
+
+          .overlay-info {
+            top: 50%;
+            margin-top: -7px;
+          }
+        }
+      }
+
+      // search results body style
+      .item-body {
+
+        .item-heading {
+
+          p {
+            .font-formatting(16px,700,16px);
+          }
+
+          a {
+            .font-formatting(16px,700,16px);
+          }
+
+          .item-price {
+            margin-left:15px;
+            .font-formatting(16px,400,16px);
+          }
+
+          .item-info {
+            .font-formatting(12px,400);
+            color: @grey-text-3;
+          }
+        }
+
+        .item-description {
+
+          .font-formatting(14px,400,20px);
+
+          p {
+            .font-formatting(14px,400,20px);
+          }
+        }
+
+        .item-footer {
+
+          .font-formatting(12px,400,12px);
+
+          .item-owner-name {
+            color: @grey-text-3;
+          }
+        }
+      }
+    }
+  }
+
+  //SEARCH FILTERS
+  .search-filter {
+
+    .filter-headline {
+      padding:30px;
+      color: #000;
+      .font-formatting(16px,600);
+    }
+
+    background-color: @grey-background-1;
+
+    .filters {
+      padding:30px;
+
+      //removing padding from filter sections
+      &.padding-v-15 {
+
+        padding:15px 30px;
+      }
+
+      //form group style
+      .form-group {
+
+        margin-bottom: 0;
+
+        //filter name style
+        label {
+          color: @grey-text-4;
+          text-transform: uppercase;
+          .font-formatting(10px,600,10px);
+          margin-bottom:15px;
+        }
+
+        &.bordered {
+
+          border-bottom: 1px solid #e5e5e5;
+        }
+      }
+
+      //checkbox style
+      .checkbox {
+        margin:0;
+
+        input[type="checkbox"] {
+          margin:1px 0 0;
+          margin-left:-15px;
+        }
+
+        label {
+          margin:0;
+        }
+      }
+
+      .form-control {
+        height:40px;
+        .font-formatting(12px,400);
+      }
+
+      &.filter-tag {
+
+        background-color: @grey-background-2;
+      }
+
+      &.bordered {
+
+        border-bottom:1px dashed @greyGreen;
+      }
+
+      //filter update button style
+      .filters-update {
+
+        .font-formatting(15px,900);
+        padding:0 30px;
+        height:35px;
+      }
+    }
+
+    @media (min-width: @screen-sm-min) {
+
+      position:absolute;
+      height:100%;
+    }
+  }
+}

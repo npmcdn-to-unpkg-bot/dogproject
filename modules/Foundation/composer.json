@@ -1,0 +1,23 @@
+{
+    "name": "pingpong-modules\/foundation",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Foundation\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\Foundation\\Repositories\\Contracts\\FoundationModelRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\Foundation\\Repositories\\Eloquent\\FoundationModelRepository"
+        ]
+    }
+}

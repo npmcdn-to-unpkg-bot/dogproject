@@ -1,0 +1,23 @@
+{
+    "name": "pingpong-modules\/sheltercomments",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\ShelterComments\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\ShelterComments\\Repositories\\Contracts\\ShelterReviewRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\ShelterComments\\Repositories\\Eloquent\\ShelterReviewRepository"
+        ]
+    }
+}

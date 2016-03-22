@@ -1,0 +1,15 @@
+{
+    "name": "Shelter",
+    "alias": "shelter",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Shelter\\Providers\\ShelterServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}

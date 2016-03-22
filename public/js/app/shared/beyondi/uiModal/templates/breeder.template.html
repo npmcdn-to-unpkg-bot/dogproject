@@ -1,0 +1,78 @@
+<div class="breeder">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="breeder-info modal-block">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="img/misc/home/puppy.png" width="70"/>
+                    </div>
+                    <div class="media-body">
+                        <div class="media-heading">
+                            <h4>{{item.users.first_name}}&nbsp;{{item.users.last_name}}</h4>
+
+                            <p>{{item.suburb.suburb}},&nbsp;{{item.state.abbreviation}} <span ng-show="item.verified == 1">- <a>Verified Breeder</a></p></span>
+                        </div>
+                        <div class="media-body">
+                            <ul class="list-justified">
+                                <li><p>Joined:<span>{{item.created_at | date:'mediumDate'}}</span></p></li>
+                                <li><p>Litters:<span>2</span></p></li>
+                                <li><p>Dogs Sold:<span>2</span>&nbsp;<span>5</span></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="breeder-details modal-block">
+                <div class="breeder-description">
+                    <p>{{item.about}}</p>
+                </div>
+                <div class="verification-and-rating">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-sm-6">
+                            <div class="page-section-headline">
+                                <h4>Breeder Verification</h4>
+                            </div>
+                            <ul class="verification-list list-unstyled">
+                                <li><p>Victoria Dog Breed<span>225563688</span></p></li>
+                                <li><p>Vic French Bulldog Club<span>225563688</span></p></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-sm-6 bordered">
+                            <div class="page-section-headline">
+                                <h4>Current Overall Rating</h4>
+                            </div>
+                            <div class="rating" ng-init="x = 5">
+                                <p><uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating><span class="rating-score">4.50 / 5</span></p>
+                                <p class="count">5 reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comments-and-ratings modal-block">
+                <div class="page-section-headline">
+                    <h4>Most Recent Comment</h4>
+                </div>
+                <div class="comment">
+                    <div class="comment-body">
+                        <p>Quality pure bred Red Cattle Dog puppies. Both parents have excellent temperaments, pups have been raised in wonderful conditions with daily cuddles from out.</p>
+                    </div>
+                    <div class="rating-body">
+                        <p>Nick Thorn - Kempsey, NSW - 25th October 2015<span class="pull-right" ng-init="x = 5"><uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating><span class="rating">4/5</span></span></p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-body">
+                        <p>Quality pure bred Red Cattle Dog puppies. Both parents have excellent temperaments, pups have been raised in wonderful conditions with daily cuddles from out.</p>
+                    </div>
+                    <div class="rating-body">
+                        <p>Nick Thorn - Kempsey, NSW - 25th October 2015<span class="pull-right" ng-init="x = 5"><uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating><span class="rating">4/5</span></span></p>
+                    </div>
+                </div>
+                <div class="read-more">
+                    <a>Read More Ratings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

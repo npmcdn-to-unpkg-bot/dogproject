@@ -1,0 +1,214 @@
+<main class="dogs-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-3">
+                <div class="dogs-profile-image floated-block">
+                    <div class="image-gallery">
+                        <div class="current-image">
+                            <img src="img/misc/home/puppy.png" />
+                        </div>
+                        <div class="enlarge-current-image text-center">
+                            <a ng-click="open()" bynd-ui-modal="gallery"> + Click to enlarge image</a>
+                        </div>
+                        <div class="other-images">
+                            <ul class="list-inline">
+                                <li>
+                                    <figure class="img-overlay">
+                                        <img src="img/misc/home/puppy.png" />
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure class="img-overlay">
+                                        <img src="img/misc/home/puppy.png" />
+                                    </figure>
+                                </li>
+                                <li>
+                                    <figure class="img-overlay">
+                                        <img src="img/misc/home/puppy.png" />
+                                    </figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="dogs-social-share floated-block">
+                    <div class="page-section-headline">
+                        <h4>Tell your friends about this dog</h4>
+                    </div>
+                    <ul class="social-networks list-inline">
+                        <li><a><i class="fa fa-facebook"></i></a></li>
+                        <li><a><i class="fa fa-pinterest"></i></a></li>
+                        <li><a><i class="fa fa-google-plus"></i></a></li>
+                        <li><a><i class="fa fa-twitter"></i></a></li>
+                        <li><a><i class="fa fa-envelope-o"></i></a></li>
+                    </ul>
+                </div>
+                <div class="dogs-advertising floated-block">
+                    <div class="page-section-headline">
+                        <h4>Advertising</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+                <div class="dog-middle-container" style="position: relative; display: block;">
+                    <div class="dog-profile-information">
+                        <div class="dog-headline">
+                            <h1 class="dog-name"><span ng-show="dog.name">{{dog.name}} - </span><span>{{dog.breed.breed}}</span><span class="pull-right"><span class="dog-price"><span>{{dog.cost | currency}}</span></span></span></h1>
+                            <p class="dog-location">{{dog.owner.suburb.suburb}}, {{dog.owner.state.abbreviation}}</p>
+                        </div>
+                        <div class="dog-description">
+                            <p>{{dog.about}}</p>
+                        </div>
+                        <div class="dog-breeder">
+                            <h3><a class="breader"  ng-click="open()" bynd-ui-modal="breeder" scope-forward="{{dog.owner}}">{{dog.owner.users.first_name}}&nbsp;{{dog.owner.users.last_name}}</a><span class="comments pull-right"><i class="fa fa-commenting"></i><span class="number">3</span></span><span class="pull-right" ng-init="x = 2"><uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating></span></h3>
+                        </div>
+                        <div class="dog-breeder-contact">
+                            <div class="reveal-contact">
+                                <button class="btn-default btn" ng-click="reveal = !reveal">Contact Breader</button>
+                            </div>
+                            <div class="contact-number headline" ng-show="reveal">
+                                <h4>Contact Number:<span class="number">0411 732...</span></h4>
+                            </div>
+                            <div class="contact-form" ng-show="reveal">
+                                <form name="enquiryForm" ng-submit="sendEnquiry(enquiryForm,enquiry)">
+                                    <div class="form-headline headline">
+                                        <h4>Send Enquiry:</h4>
+                                    </div>
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-6">
+                                                    <label>Name</label>
+                                                    <input ng-model="enquiry.name" required type="text" class="form-control" />
+                                                </div>
+                                                <div class="col-md-6 col-lg-6">
+                                                    <label>Email</label>
+                                                    <input ng-model="enquiry.email" required type="email" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-6">
+                                                    <label>Contact Number</label>
+                                                    <input ng-model="enquiry.contact_number" required type="text" class="form-control" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Enquiry</label>
+                                            <textarea ng-model="enquiry.enquiry" required class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-default" ng-disabled="enquiryForm.$invalid">Send Enquiry</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="dog-breed">
+                            <div class="page-section-headline">
+                                <h4>About the bread</h4>
+                                <p>The Beautiful Puppy is an ACHC recognized Hybrid Dog Breed. A cross between the English Bulldog and the Beagle, it combines two great canine temperaments. This breed should be of a short and stocky build, and weigh between 30-50 pounds in most cases. On the English Bulldog side of the breed, you could expect a loyal and loving family companion. On the Beagle side, you are getting one of the best hunting/tracking hounds known to man. The combination of these two breeds should produce an excellent family pet and playful companion. While this is a well like mixed breed, it is not currently recognized as a purebred by the AKC or ACA.</p>
+                                <a>Keep Reading</a>
+                            </div>
+                        </div>
+                        <div class="dog-specs">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                    <p><i class="fa fa-check"></i><span class="type">Trainability:</span><span class="value">Moderate/High</span></p>
+                                    <p><i class="fa fa-check"></i><span class="type">Grooming:</span><span class="value">Low</span></p>
+                                    <p><i class="fa fa-check"></i><span class="type">Size:</span><span class="value">Medium</span></p>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                    <p><i class="fa fa-check"></i><span class="type">Adaptability:</span><span class="value">Moderate</span></p>
+                                    <p><i class="fa fa-check"></i><span class="type">Energy:</span><span class="value">Energy</span></p>
+                                    <p><i class="fa fa-check"></i><span class="type">Family Pet:</span><span class="value">Excellent</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <div class="dog-informations">
+                    <div class="info-list">
+                        <div class="page-section-headline">
+                            <h4>Dog Information</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4 col-sm-6 col-xs-6">
+                                <p><span class="type">DOB:</span></p>
+                                <p><span class="type">Age:</span></p>
+                                <p><span class="type">Sex:</span></p>
+                                <p><span class="type">Features:</span></p>
+                            </div>
+                            <div class="col-md-8 col-lg-8 col-sm-6 col-xs-6">
+                                <p></span><span class="value">{{dog.birth_date | date:'mediumDate'}}</span></p>
+                                <p><span class="value">{{ currentDate | amDifference : dog.birth_date : 'days' }} days</span></p>
+                                <p>
+                                    <span class="value">
+                                        <span ng-show="dog.sex">
+                                            <span ng-show="dog.sex =='F'">Female</span>
+                                            <span ng-show="dog.sex =='M'">Male</span>
+                                        </span>
+                                        <span ng-hide="dog.sex">
+                                            {{dog.male_qty - dog.male_sold}}<i class="fa fa-male"></i>{{dog.female_qty - dog.female_sold}}<i class="fa fa-female"></i>
+                                        </span>
+                                    </span>
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li ng-show="dog.vaccination"><p>Vacination</p></li>
+                                    <li ng-show="dog.vet_checked"><p>Vet Checked</p></li>
+                                    <li ng-show="dog.desexed"><p>Desexed</p></li>
+                                    <li ng-show="dog.de_warmed"><p>De - Wormed</p></li>
+                                    <li ng-show="dog.micro_chipped"><p>Micro Chipped</p></li>
+                                    <li ng-show="dog.registration_papers"><p>Registration Papers</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="info-parents">
+                        <div class="parent bordered">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img width="60" height="60" class="img-circle" src="{{dog.mother.image}}" />
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">
+                                        <h4>Mother:<span class="pull-right"><a ng-click="open()" bynd-ui-modal="parent" scope-forward="{{dog.mother}}">View</a></span></h4>
+                                        <p>{{dog.mother.name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="parent">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img width="60" height="60" class="img-circle" src="{{dog.father.image}}" />
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">
+                                        <h4>Father:<span class="pull-right"><a ng-click="open()" bynd-ui-modal="parent" scope-forward="{{dog.father}}">View</a></span></h4>
+                                        <p>{{dog.father.name}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dog-associations-info">
+                    <div class="page-section-headline">
+                        <h4>Dog associations</h4>
+                        <p>For all information related to this dog bread we recommend you contact any of these associations for more information.</p>
+                        <div class="clearfix"></div>
+                        <a class="floated-block">Australian Pomski Associations</a>
+                        <a class="floated-block">Pomski's of NSW</a>
+                        <a class="floated-block">Victorian Pomski Club</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,15 @@
+<div class="form-section">
+    <form name="requestReviewForm" ng-submit="requestReview(requestReviewForm,review)">
+        <label>Get a Buyer Reviews</label>
+        <div class="form-group">
+            <label>Get a review from some you sold a dog to</label>
+            <input ng-repeat="(key,value) in item" type="email" class="form-control" ng-model="review.email[key]" style="margin-bottom: 30px;" required>
+        </div>
+        <div class="form-group">
+            <a ng-click="addReviewField()"> +Add Another Review Email</a>
+        </div>
+        <div class="form-group">
+            <button class="btn-default btn" ng-disabled="requestReviewForm.$invalid">Request Reviews</button>
+        </div>
+    </form>
+</div>

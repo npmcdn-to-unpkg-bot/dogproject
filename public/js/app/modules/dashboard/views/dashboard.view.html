@@ -1,0 +1,42 @@
+<toaster-container></toaster-container>
+<main class="dashboard-page">
+    <div class="container">
+        <div class="row row-table">
+            <div class="col-md-4 col-lg-4 col-sm-4 col-cells">
+                <div class="page-sidebar grey">
+                    <div class="page-sidebar-block dash-border">
+                        <div class="page-profile">
+                            <div class="profile-image breeder-image">
+                                <img ng-hide="seller.seller.photo" src="/img/misc/home/puppy.png"/>
+                                <img ng-show="seller.seller.photo" src="{{seller.seller.photo}}" class="img-circle"/>
+                                <span class="verification" ng-show="seller.seller.verified == 1"><i class="fa fa-check"></i></span>
+                            </div>
+                            <div class="profile-name text-center" ng-show="seller">
+                                <h4><span>{{seller.first_name}}</span>&nbsp;<span>{{seller.last_name}}</span></h4>
+                            </div>
+                            <div class="profile-details text-center">
+                                <p class="location">{{seller.seller.suburb.suburb}}, {{seller.seller.state.abbreviation}}</p>
+
+                                <p class="phone">{{seller.contact_number}}</p>
+
+                                <p class="email">{{seller.email}}</p>
+
+                                <p class="verified" ng-show="seller.seller.verified == 1">Verified Breader</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-sidebar-navigation">
+                        <ul class="list-unstyled navigation">
+                            <li><a ui-sref="dashboard.index">Dashboard</a></li>
+                            <li><a ui-sref="dashboard.list-dog">List a Dog</a></li>
+                            <li><a ui-sref="dashboard.user-settings">User Settings</a></li>
+                            <li><a ui-sref="dashboard.verification">Breeder Verification</a></li>
+                            <li><a ui-sref="dashboard.ratings">Ratings & Comments</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-8 col-sm-8 col-cells" ui-view></div>
+        </div>
+    </div>
+</main>

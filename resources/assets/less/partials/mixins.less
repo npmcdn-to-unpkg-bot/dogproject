@@ -1,0 +1,110 @@
+.floated-block()
+{
+  display: block;
+  float:left;
+  width:100%;
+}
+
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.navbar-align(@padding){
+  padding-top:@padding;
+  padding-bottom:@padding;
+}
+
+.font-formatting(@size,@weight,@line-height) when(ispixel(@line-height)){
+  font-size:@size;
+  font-weight:@weight;
+  line-height:@line-height;
+}
+.font-formatting(@size,@weight){
+  font-size:@size;
+  font-weight:@weight;
+}
+.button-gradient(@backgroundOne,@backgroundTwo){
+  background: @backgroundOne; /* Old browsers */
+  background: -moz-linear-gradient(top,  @backgroundOne 50%, @backgroundTwo 50%, @backgroundTwo 50%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  @backgroundOne 50%,@backgroundTwo 50%,@backgroundTwo 50%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  @backgroundOne 50%,@backgroundTwo 50%,@backgroundTwo 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= @backgroundOne, endColorstr= @backgroundTwo,GradientType=0 ); /* IE6-9 */
+}
+
+.button-gradient-variant(@color; @backgroundOne; @backgroundTwo; @hoverBackground; @border) {
+  color: @color;
+  border-color: @border;
+  outline: none;
+  .button-gradient(@backgroundOne,@backgroundTwo);
+
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &:active:focus,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: @hoverBackground;
+    box-shadow:none;
+    outline: none;
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: @hoverBackground;
+      box-shadow:none;
+      outline: none;
+    }
+  }
+}
+
+.button-default-init(@height, @font) {
+  .font-formatting(@font, 700);
+  height: @height;
+}
+
+.img-overlay-formatting(@height,@width,@radius)
+{
+  height: @height;
+  width:  @width;
+  .border-radius(@radius);
+}
+
+.placeholder-formatting(@color) {
+
+  &::-webkit-input-placeholder { color: @color; }
+  &::-moz-placeholder { color: @color; } /* firefox 19+ */
+  &:-ms-input-placeholder { color: @color; } /* ie */
+}
+
+.font-awesome-rounded(@diameter,@background-color,@color) {
+
+  width: @diameter;
+  height: @diameter;
+  line-height:@diameter;
+  color: @color;
+  background-color: @background-color;
+  text-align:center;
+  .border-radius(@diameter/2);
+}
+
+.transform(@transformation) {
+
+  -ms-transform: @transformation;
+  -webkit-transform: @transformation;
+  transform: @transformation;
+}

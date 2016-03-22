@@ -1,0 +1,153 @@
+<main class="register-page">
+    <div class="container">
+        <div class="row row-table">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-cells">
+                <div class="page-headline">
+                    <h1>Register to Sell dogs</h1>
+                </div>
+                <div class="register-form page-form">
+                    <form name="registerForm" ng-submit="registerSeller(registerForm,register)">
+                        <div class="form-section grey">
+                            <label>User Details</label>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" ng-model="register.first_name"  required/>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" ng-model="register.last_name" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Address <span class="pull-right">Validation purposes only</span></label>
+                                <input type="text" class="form-control" ng-model="register.address" required/>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>State</label>
+                                        <div class="form-group">
+                                            <div class="btn-group btn-block" uib-dropdown>
+                                                <button id="states" type="button" class="form-control" uib-dropdown-toggle>
+                                                    {{selectedState}} <span class="caret"></span>
+                                                </button>
+                                                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem" ng-repeat="(key,state) in states"><a ng-click="selectState(key,state.id)">{{state.name}}</a></li>
+                                                </ul>
+                                                <input type="hidden" ng-model="register.state_id" required/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Suburb</label>
+                                        <div class="form-group">
+                                            <div class="btn-group btn-block" uib-dropdown>
+                                                <button id="suburbs" type="button" class="form-control" uib-dropdown-toggle>
+                                                    {{selectedSuburb}} <span class="caret"></span>
+                                                </button>
+                                                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem" ng-repeat="(key,suburb) in suburbs"><a ng-click="selectSuburb(key,suburb.id)">{{suburb.suburb}} ({{suburb.postcode}})</a></li>
+                                                </ul>
+                                                <input type="hidden" ng-model="register.suburb_id"  required/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" ng-model="register.email" required>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Contact Number</label>
+                                        <input type="number" class="form-control" ng-model="register.contact_number" required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section grey">
+                            <label>Type of Seller<span class="pull-right">Verification for some seller types is required</span></label>
+                            <div class="form-group">
+                                <div class="btn-group btn-block" uib-dropdown is-open="status.isopen">
+                                    <button id="type_of_seller" type="button" class="form-control" uib-dropdown-toggle>
+                                        {{selectedType}} <span class="caret"></span>
+                                    </button>
+                                    <ul uib-dropdown-menu role="menu" aria-labelledby="type_of_seller">
+                                        <li role="menuitem"><a ng-click="selectType('hobby')">Hobby Breeder</a></li>
+                                        <li role="menuitem"><a ng-click="selectType('verified')">Verified Breeder</a></li>
+                                        <li role="menuitem"><a ng-click="selectType('single')">Single Seller</a></li>
+                                    </ul>
+                                    <input type="hidden" ng-model="register.type" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section grey">
+                            <label>Account Details</label>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" ng-model="register.password" required/>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Confirm Password</label>
+                                        <input type="password" class="form-control" ng-model="register.password_confirmation" required/>
+                                        <small ng-show="registerErrors.password">{{registerErrors.password[0]}}</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input ng-model="register.terms" type="checkbox" required> I agree that all information supplied is correct &
+                                            agree to Petagree <a>Terms & Conditions</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default" ng-disabled="registerForm.$invalid">Register</button>
+                            <span class="btn-note">Please note that all accounts are verified.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-cells">
+                <div class="page-sidebar grey">
+                    <div class="page-headline register-faq-headline">
+                        <p>Selling FAQ</p>
+                    </div>
+                    <div class="register-faq page-sidebar-block dash-border">
+                        <uib-accordion close-others="true">
+                            <uib-accordion-group heading="Static Header, initially expanded" is-open="true">
+                                <uib-accordion-heading>First heading <span class="pull-right"><i class="fa fa-caret-right"></i></span></uib-accordion-heading>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </uib-accordion-group>
+                            <uib-accordion-group heading="Static Header, initially expanded">
+                                <uib-accordion-heading>Second heading <span class="pull-right"><i class="fa fa-caret-right"></i></span></uib-accordion-heading>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </uib-accordion-group>
+                            <uib-accordion-group heading="Static Header, initially expanded">
+                                <uib-accordion-heading>Third heading <span class="pull-right"><i class="fa fa-caret-right"></i></span></uib-accordion-heading>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </uib-accordion-group>
+                            <uib-accordion-group heading="Static Header, initially expanded">
+                                <uib-accordion-heading>Forth heading <span class="pull-right"><i class="fa fa-caret-right"></i></span></uib-accordion-heading>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </uib-accordion-group>
+                        </uib-accordion>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

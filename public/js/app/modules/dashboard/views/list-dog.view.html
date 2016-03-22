@@ -1,0 +1,288 @@
+<div class="page-headline">
+    <h1>List a Dog</h1>
+</div>
+<div class="list-form page-form">
+    <form name="listForm" ng-submit="listDog(listForm,dog)" enctype="multipart/form-data">
+        <div class="form-section grey">
+            <label>Dog Information</label>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Dog Breed</label>
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="breed" type="button" class="form-control" uib-dropdown-toggle>
+                                 {{selectedBreed}}<span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="breed">
+                                <li role="menuitem" ng-repeat="(key,breed) in breeds" ng-click="selectBreed(breed)"><a href="#">{{breed.breed}}</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="dog.breed_id" />
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Date of Birth</label>
+                        <input  ng-model="dog.birth_date" min="" type="date" class="form-control" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Type of Listings</label>
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="TOL" type="button" class="form-control" uib-dropdown-toggle>
+                                {{selectedListing}}<span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="TOL">
+                                <li role="menuitem"><a ng-click="selectListingType('single')">Single</a></li>
+                                <li role="menuitem"><a ng-click="selectListingType('mature')">Mature</a></li>
+                                <li role="menuitem"><a ng-click="selectListingType('litter')">Litter</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="dog.type_of_listing"  required/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6" ng-show="dog.type_of_listing == 'litter'">
+                        <label>How many males and females?</label>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <input type="number" class="form-control" ng-model="dog.male_qty" ng-required="dog.type_of_listing === 'litter'"/>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-sm-6">
+                                <input type="number" class="form-control" ng-model="dog.female_qty" ng-required="dog.type_of_listing === 'litter'"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6" ng-show="dog.type_of_listing == 'single' || dog.type_of_listing == 'mature'">
+                        <label>&nbsp;</label>
+                        <ul class="list-inline">
+                            <li>Male</li>
+                            <li>
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" ng-model="dog.sex" ng-true-value="'F'" ng-false-value="'M'" checked>
+                                    <label class="onoffswitch-label" for="myonoffswitch">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </li>
+                            <li>Female</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-show="dog.type_of_listing == 'single'">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Name</label>
+                        <input ng-model="dog.name" type="text" class="form-control" ng-required="dog.type_of_listing === 'single'"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Cost</label>
+                        <input ng-model="dog.cost" type="text" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>About</label>
+                <textarea ng-model="dog.about" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-section grey">
+            <label>Dog Images</label>
+            <div class="form-group no-margin">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="add-dog-image">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="add-image">
+                                        <img ng-show="listForm.image1.$valid" ngf-thumbnail="dog.image[0]" class="thumb" width="60" height="60">
+                                        <input type="file" ngf-select ng-model="dog.image[0]" name="image1" accept="image/*" ngf-max-size="2MB" required ngf-model-invalid="errorFiles">
+                                        <div ng-show="!listForm.image1.$valid">1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-dog-image">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="add-image">
+                                        <img ng-show="listForm.image2.$valid" ngf-thumbnail="dog.image[1]" class="thumb" width="60" height="60">
+                                        <input type="file" ngf-select ng-model="dog.image[1]" name="image2" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                                        <div ng-hide="dog.image[1]">2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-dog-image">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="add-image">
+                                        <img ng-show="listForm.image3.$valid" ngf-thumbnail="dog.image[2]" class="thumb" width="60" height="60">
+                                        <input type="file" ngf-select ng-model="dog.image[2]" name="image3" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                                        <div ng-hide="dog.image[2]">3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-dog-image">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="add-image">
+                                        <img ng-show="listForm.image4.$valid" ngf-thumbnail="dog.image[3]" class="thumb" width="60" height="60">
+                                        <input type="file" ngf-select ng-model="dog.image[3]" name="image4" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                                        <div ng-hide="dog.image[3]">4</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-section grey">
+            <label>Key Features<span class="pull-right">Please tick the ones that apply</span></label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <div class="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="dog.vaccination" type="checkbox"> Vaccination
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <div class="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="dog.vet_checked" type="checkbox"> Vet Checked
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <div class="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="dog.desexed" type="checkbox"> Desexed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <div class="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="dog.de_warmed" type="checkbox"> De - Wormed
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <div class="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="dog.micro_chipped" type="checkbox"> Micro Chipped
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <div class="checkbox">
+                            <div class="checkbox">
+                                <label>
+                                    <input ng-model="dog.registration_papers" type="checkbox"> Registration Papers
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-section grey">
+            <label>Parents</label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <label>Mother</label>
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="mother" type="button" class="form-control" uib-dropdown-toggle>
+                                {{selectedMother}} <span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="mother">
+                                <li role="menuitem"><a ng-click="addNewMother()">Add New Mother</a></li>
+                                <li role="menuitem" ng-repeat="(key,mother) in mothers"><a ng-click="selectMother(mother)">{{mother.name}}</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="dog.mother_id" required/>
+                        </div>
+                        <div class="media" ng-show="mother">
+                            <div class="media-left">
+                                <img width="60" src="/img/misc/home/puppy.png" />
+                            </div>
+                            <div class="media-body" style="vertical-align: middle">
+                                <button type="button" class="btn btn-default btn-sm" ng-click="open()" bynd-ui-modal="create-mother">Create Profile</button>
+                            </div>
+                        </div>
+                        <div class="media" ng-show="showSelectedMother">
+                            <div class="media-left">
+                                <img width="60" src="{{showSelectedMother.image}}" height="60" width="60" class="img-circle" />
+                            </div>
+                            <div class="media-body" style="vertical-align: middle">
+                                <button type="button" class="btn btn-default btn-sm">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <label>Father</label>
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="father" type="button" class="form-control" uib-dropdown-toggle>
+                                {{selectedFather}} <span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="father">
+                                <li role="menuitem"><a ng-click="addNewFather()">Add New Father</a></li>
+                                <li role="menuitem" ng-repeat="(key,father) in fathers"><a ng-click="selectFather(father)">{{father.name}}</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="dog.father_id"  required/>
+                        </div>
+                        <div class="media" ng-show="father">
+                            <div class="media-left">
+                                <img width="60" src="/img/misc/home/puppy.png" />
+                            </div>
+                            <div class="media-body" style="vertical-align: middle">
+                                <button type="button" class="btn btn-default btn-sm" ng-click="open()" bynd-ui-modal="create-father">Create Profile</button>
+                            </div>
+                        </div>
+                        <div class="media" ng-show="showSelectedFather">
+                            <div class="media-left">
+                                <img width="60" src="{{showSelectedFather.image}}" height="60" width="60" class="img-circle" />
+                            </div>
+                            <div class="media-body" style="vertical-align: middle">
+                                <button type="button" class="btn btn-default btn-sm">Edit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" required ng-model="dog.terms"> I agree to all the Petagree <a>Terms & Conditions</a>
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-default" type="submit" ng-disabled="listForm.$invalid">List a Dog</button>
+        </div>
+    </form>
+</div>

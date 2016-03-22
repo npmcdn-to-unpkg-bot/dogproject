@@ -1,0 +1,118 @@
+/**
+     * Get new instance of model
+     *
+     * @param array $attributes
+     * @return static
+     */
+    public function getNew(array $attributes = [])
+    {
+        return $this->{{entity}}->newInstance($attributes);
+    }
+
+    /**
+     * Insert new data in database
+     *
+     * @param array $data
+     * @return static
+     */
+    public function create(array $data)
+    {
+        return $this->{{entity}}->create($data);
+    }
+
+    /**
+     * Update data in database
+     *
+     * @param $id
+     * @param array $data
+     * @return mixed
+     */
+    public function update($id, array $data)
+    {
+        return $this->{{entity}}->whereId($id)->update($data);
+    }
+
+    /**
+     * Update data in database where user needs to specify id key and value
+     * @param array $id
+     * @param array $data
+     * @return mixed
+     */
+
+    public function updateCustom(array $id, array $data)
+    {
+        return $this->{{entity}}->where($id)->update($data);
+    }
+
+    /**
+     * Delete data from database
+     *
+     * @param $id
+     * @return bool|null
+     * @throws \Exception
+     */
+    public function delete($id)
+    {
+        return $this->{{entity}}->destroy($id);
+    }
+
+    /**
+     * Deletes row based on $id array (column name => value) KEEP
+     * @param array $id
+     * @return mixed
+     */
+
+    public function deleteCustom(array $id)
+    {
+        return $this->{{entity}}->where($id)->delete();
+    }
+
+    /**
+     * Get all data from database
+     *
+     * @param array $columns
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getAll(array $columns = ['*'])
+    {
+        return $this->{{entity}}->all($columns);
+    }
+
+    /**
+     * Find data by id
+     *
+     * @param $id
+     * @param array $columns
+     * @return \Illuminate\Support\Collection|null|static
+     */
+    public function findById($id, $columns = ['*'])
+    {
+        return $this->{{entity}}->find($id, $columns)->toArray();
+    }
+
+    /**
+     * Get related data (custom), user specifies that in array KEEP
+     * Also to get specific data (not all) where array must be provided (column name => value)
+     * @param array $relations
+     * @return array
+     */
+
+    public function getRelatedCustom(array $relations, array $where = [])
+    {
+        if(empty($where))
+        {
+            $query = $this->{{entity}};
+            foreach ($relations as $value) {
+                $query = $query->with($value);
+            }
+            return $query->get()->toArray();
+        }else
+        {
+            $query = $this->{{entity}};
+            foreach ($relations as $value) {
+                $query = $query->with($value);
+            }
+            $query = $query->where($where);
+            return $query->get()->toArray();
+        }
+    }

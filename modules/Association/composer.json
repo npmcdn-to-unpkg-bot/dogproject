@@ -1,0 +1,31 @@
+{
+    "name": "pingpong-modules\/association",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Association\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\Association\\Repositories\\Contracts\\AssociationRepositoryInterface",
+            "Modules\\Association\\Repositories\\Contracts\\UserAssociationRepositoryInterface",
+            "Modules\\Association\\Repositories\\Contracts\\AssociationInviteRepositoryInterface",
+            "Modules\\Association\\Repositories\\Contracts\\AssociationMemberRepositoryInterface",
+            "Modules\\Association\\Repositories\\Contracts\\AssociationKeyMemberRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\Association\\Repositories\\Eloquent\\AssociationRepository",
+            "Modules\\Association\\Repositories\\Eloquent\\UserAssociationRepository",
+            "Modules\\Association\\Repositories\\Eloquent\\AssociationInviteRepository",
+            "Modules\\Association\\Repositories\\Eloquent\\AssociationMemberRepository",
+            "Modules\\Association\\Repositories\\Eloquent\\AssociationKeyMemberRepository"
+        ]
+    }
+}

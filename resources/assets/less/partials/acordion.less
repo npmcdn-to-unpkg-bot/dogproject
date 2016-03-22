@@ -1,0 +1,55 @@
+uib-accordion {
+
+  .panel-default {
+
+    border: 0;
+
+    > .panel-heading {
+      border: 0;
+      .border-radius(4px);
+      padding: 11.5px 25px;
+      background-color: @white;
+
+      h4 {
+
+        a {
+          text-decoration: none;
+          outline: none;
+        }
+      }
+
+      + .panel-collapse {
+
+        .transition(.3s ease-in-out);
+
+        > .panel-body {
+          padding:25px;
+          border-top-color: @grey-border-4;
+          .font-formatting(12px,400,20px);
+
+          p {
+            .font-formatting(12px,400,20px);
+          }
+        }
+      }
+
+      .fa-caret-right {
+        color: #b2b2b2;
+        .transition(.3s ease-in-out);
+      }
+    }
+
+    &.panel-open {
+
+      > .panel-heading {
+
+        .fa-caret-right {
+
+          &:before {
+            content: '\f0d7';
+          }
+        }
+      }
+    }
+  }
+}

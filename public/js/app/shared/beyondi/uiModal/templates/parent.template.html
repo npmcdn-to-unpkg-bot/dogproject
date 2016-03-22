@@ -1,0 +1,115 @@
+<div class="parent">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="parent-info modal-block">
+                <div class="media">
+                    <div class="media-left">
+                        <img src="{{item.image}}" width="70"  height="70" class="img-circle"/>
+                    </div>
+                    <div class="media-body">
+                        <div class="media-heading">
+                            <h4>{{item.name}} - {{item.breed.breed}}</h4>
+                            <p>Kempsey, NSW</p>
+                        </div>
+                        <div class="media-body">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                    <p>DOB:<span>{{item.birth_date | date:'mediumDate'}}</span></p>
+                                    <p>Age:<span>{{ currentDate | amDifference : item.birth_date : 'years' }} years</span></p>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+                                    <p>Sex:<span>1</span></p>
+                                    <p>Litters:<span>2</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent-characteristics modal-block">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <div class="page-section-headline">
+                            <h4>Temperament Level</h4>
+                        </div>
+                        <uib-progressbar value="0" ng-class="yellow-bar" ng-show="item.temperament == 1"></uib-progressbar>
+                        <uib-progressbar value="50" ng-class="yellow-bar" ng-show="item.temperament == 2"></uib-progressbar>
+                        <uib-progressbar value="100" ng-class="yellow-bar" ng-show="item.temperament == 3"></uib-progressbar>
+                        <div class="progress-range">
+                            <ul class="">
+                                <li>Low</li>
+                                <li>Average</li>
+                                <li>High</li>
+                            </ul>
+                        </div>
+                        <div class="page-section-headline">
+                            <h4>Intelligence level</h4>
+                        </div>
+                        <uib-progressbar value="0" ng-class="yellow-bar" ng-show="item.intelligence == 1"></uib-progressbar>
+                        <uib-progressbar value="50" ng-class="yellow-bar" ng-show="item.intelligence == 2"></uib-progressbar>
+                        <uib-progressbar value="100" ng-class="yellow-bar" ng-show="item.intelligence == 3"></uib-progressbar>
+                        <div class="progress-range">
+                            <ul class="list-inline">
+                                <li>Low</li>
+                                <li>Average</li>
+                                <li>High</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <div class="page-section-headline">
+                            <h4>Energy Level</h4>
+                        </div>
+                        <uib-progressbar value="0" ng-class="yellow-bar" ng-show="item.energy == 1"></uib-progressbar>
+                        <uib-progressbar value="50" ng-class="yellow-bar" ng-show="item.energy == 2"></uib-progressbar>
+                        <uib-progressbar value="100" ng-class="yellow-bar" ng-show="item.energy == 3"></uib-progressbar>
+                        <div class="progress-range">
+                            <ul class="list-inline">
+                                <li>Low</li>
+                                <li>Average</li>
+                                <li>High</li>
+                            </ul>
+                        </div>
+                        <div class="page-section-headline">
+                            <h4>Maintenance Level</h4>
+                        </div>
+                        <uib-progressbar value="0" ng-class="yellow-bar" ng-show="item.maintenance == 1"></uib-progressbar>
+                        <uib-progressbar value="50" ng-class="yellow-bar" ng-show="item.maintenance == 2"></uib-progressbar>
+                        <uib-progressbar value="100" ng-class="yellow-bar" ng-show="item.maintenance == 3"></uib-progressbar>
+                        <div class="progress-range">
+                            <ul class="list-inline">
+                                <li>Low</li>
+                                <li>Average</li>
+                                <li>High</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="comments-and-ratings modal-block">
+                <div class="page-section-headline">
+                    <h4>Most Recent Comment</h4>
+                </div>
+                <div class="comment">
+                    <div class="comment-body">
+                        <p>Quality pure bred Red Cattle Dog puppies. Both parents have excellent temperaments, pups have been raised in wonderful conditions with daily cuddles from out.</p>
+                    </div>
+                    <div class="rating-body">
+                        <p>Nick Thorn - Kempsey, NSW - 25th October 2015<span class="pull-right" ng-init="x = 5"><uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating><span class="rating">4/5</span></span></p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-body">
+                        <p>Quality pure bred Red Cattle Dog puppies. Both parents have excellent temperaments, pups have been raised in wonderful conditions with daily cuddles from out.</p>
+                    </div>
+                    <div class="rating-body">
+                        <p>Nick Thorn - Kempsey, NSW - 25th October 2015<span class="pull-right" ng-init="x = 5"><uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating><span class="rating">4/5</span></span></p>
+                    </div>
+                </div>
+                <div class="read-more">
+                    <a>Read More Ratings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

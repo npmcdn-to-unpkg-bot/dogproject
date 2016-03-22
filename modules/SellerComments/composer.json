@@ -1,0 +1,23 @@
+{
+    "name": "pingpong-modules\/sellercomments",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\SellerComments\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\SellerComments\\Repositories\\Contracts\\SellerCommentsRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\SellerComments\\Repositories\\Eloquent\\SellerCommentsRepository"
+        ]
+    }
+}

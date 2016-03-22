@@ -1,0 +1,106 @@
+<div class="page-section-headline">
+    <h4>Current Dog Listing</h4>
+</div>
+<div class="page-dog">
+    <div class="media">
+        <div class="media-left">
+            <img src="img/misc/home/puppy.png" class="dog-image"/>
+        </div>
+        <div class="media-body">
+            <div class="media-heading">
+                <h4 class="dog-name">Australian Cattle Dog <span class="pull-right"><span
+                        class="dog-price">$800.00</span></span></h4>
+
+                <p class="dog-location">Kempsey, NSW</p>
+            </div>
+            <div class="dog-description">
+                <p>Quality pure bred Red Cattle Dog puppies. Both parents have excellent temperaments,
+                    pups have been raised in wonderful conditions with daily cuddles from our....</p>
+            </div>
+            <div class="dog-details">
+                <ul class="list-inline">
+                    <li><i class="fa fa-male"></i>2</li>
+                    <li><i class="fa fa-female"></i>3</li>
+                </ul>
+                <span class="edit pull-right"><button class="btn btn-default">Edit</button></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-stats listing-stats">
+    <ul class="list-justified">
+        <li>Listing Stats</li>
+        <li>Views<span>5</span></li>
+        <li>Enquires<span>2</span></li>
+        <li>Number Revels<span>1</span></li>
+        <li>Sold<span><i class="fa fa-male"></i><span class="fa fa-times-circle"></span><span
+                class="fa fa-female"></span><span class="fa fa-times-circle"></span></span></li>
+    </ul>
+</div>
+<div class="page-section dash-border" ng-show="seller.seller.review.length">
+    <div class="page-section-headline">
+        <h4>Your Overall Ratings</h4>
+    </div>
+    <div class="page-overall-ratings">
+        <ul class="list-unstyled ratings">
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating1"
+                                                                                     max="5" state-on="'fa fa-star on'"
+                                                                                     state-off="'fa fa-star off'"
+                                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating1}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating2"
+                                                                                     max="5" state-on="'fa fa-star on'"
+                                                                                     state-off="'fa fa-star off'"
+                                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating2}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating3"
+                                                                                     max="5" state-on="'fa fa-star on'"
+                                                                                     state-off="'fa fa-star off'"
+                                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating3}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating4"
+                                                                                     max="5" state-on="'fa fa-star on'"
+                                                                                     state-off="'fa fa-star off'"
+                                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating4}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating5"
+                                                                                     max="5" state-on="'fa fa-star on'"
+                                                                                     state-off="'fa fa-star off'"
+                                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating5}}/5</span></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="page-stats rating-stats text-right" ng-show="seller.seller.review.length">
+    <ul class="list-inline" style="margin-right: 15px;">
+        <li>Current Rating<span>{{(rating1 + rating2 + rating3 + rating4 + rating5) / 5}} / 5</span></li>
+    </ul>
+</div>
+<div class="comments-and-ratings" style="margin-bottom: 60px;" ng-show="seller.seller.review.length">
+    <div class="page-section-headline">
+        <h4>Most Recent Comment</h4>
+    </div>
+    <div class="comment" ng-repeat="comment in seller.seller.review">
+        <div class="comment-body">
+            <p>{{comment.about}}</p>
+        </div>
+        <div class="rating-body">
+            <p>{{comment.name}} - Kempsey, NSW - {{comment.created_at | date:'medium'}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,237 @@
+.dogs-page {
+  padding:30px 0;
+
+  //dogs profile left sidebar
+  .dogs-profile-image {
+    border-bottom:1px solid @grey-border-1;
+  }
+
+  .dogs-social-share {
+
+    .social-networks {
+
+      li {
+
+        a {
+
+          i {
+
+            font-size:18px;
+            .transition(.3s ease-in-out);
+
+            &.fa-facebook {
+              .font-awesome-rounded(35px,@facebook, @white);
+            }
+
+            &.fa-twitter {
+              .font-awesome-rounded(35px,@twitter, @white);
+            }
+            &.fa-pinterest {
+              .font-awesome-rounded(35px,@pinterest, @white);
+            }
+            &.fa-google-plus {
+              .font-awesome-rounded(35px,@google-plus, @white);
+            }
+            &.fa-envelope-o {
+              .font-awesome-rounded(35px,@mail, @white);
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+
+              background-color: @buttonYellowDarker;
+              color: @buttonGreen;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //dogs profile content
+  .dog-headline {
+
+    h1 {
+      color: @green-text-1;
+      .font-formatting(34px,900,34px);
+
+      .dog-price {
+        vertical-align: middle;
+        color: #000;
+        .font-formatting(20px,400,34px);
+      }
+
+    }
+
+    .dog-location {
+      margin:10px 0;
+      color: @grey-text-3;
+      .font-formatting(12px,400,12px);
+    }
+  }
+
+  .dog-description {
+
+    padding-bottom:30px;
+
+  }
+
+  .dog-breeder {
+
+    padding:20px 0;
+    border-top:1px dashed @grey-border-1;
+    border-bottom:1px dashed @grey-border-1;
+
+    h3 {
+      margin:0;
+      color:@grey-text-3;
+      .font-formatting(14px,400,20px);
+
+      .fa {
+        font-size:20px;
+      }
+
+      .comments {
+        margin-left:30px;
+        color: @green-text-1;
+
+        .number {
+          margin-left: 8px;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .dog-specs {
+
+    padding:30px 0;
+
+    i {
+      color: @green-text-1;
+      margin-right: 10px;
+    }
+
+    .type {
+      font-weight: 600;
+    }
+
+    .value {
+      margin-left:5px;
+    }
+  }
+
+  .dog-breeder-contact {
+
+    position:relative;
+
+    .reveal-contact {
+
+      position:absolute;
+      left:50%;
+      top:-17.5px;
+      margin-left:-83.85px;
+
+      .btn-default {
+        padding:0 25px;
+        .font-formatting(14px,800);
+        height:35px;
+      }
+    }
+
+    .headline {
+      padding:15px 30px;
+
+      h4 {
+        .font-formatting(14px,400);
+        color: @grey-text-4;
+
+        .number {
+          margin-left:8px;
+          font-weight: 600;
+        }
+      }
+
+      &.contact-number {
+        background-color: @grey-background-4;
+      }
+    }
+
+    .contact-form {
+      background-color: @grey-background-1;
+
+      .form-body {
+        padding:15px 30px;
+
+        label {
+          color: @grey-text-4;
+          .font-formatting(12px,400);
+        }
+
+        .form-control {
+          height:35px;
+          .font-formatting(12px,400);
+        }
+
+        textarea {
+          padding:15px;
+          max-width: 100%;
+          height: 150px !important;
+        }
+
+        .btn-default {
+          padding:0 25px;
+          .font-formatting(14px,800);
+          height:35px;
+        }
+      }
+    }
+  }
+
+  .dog-informations {
+
+    padding:10px 0 0;
+    background-color: @grey-background-1;
+
+    .info-list {
+      padding:0 30px;
+    }
+    p {
+      color: #000;
+    }
+
+    .type {
+      font-weight: 600;
+      margin-right:10px;
+    }
+
+    .info-parents {
+
+      .parent {
+        padding:15px 30px;
+
+        &.bordered {
+          border-top:1px solid @grey-border-1;
+          border-bottom:1px solid @grey-border-1;
+        }
+
+        .media-heading {
+
+          h4 {
+            .font-formatting(14px,700,14px);
+
+
+          }
+        }
+      }
+    }
+  }
+
+  .dog-associations-info {
+
+    a {
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<main class="register-page">
+    <div class="container">
+        <div class="row row-table">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-cells">
+                <div class="page-headline">
+                    <h1>Login to Account</h1>
+                </div>
+                <div class="login-form page-form">
+                    <form name="loginForm" ng-submit="loginSeller(loginForm,login)">
+                        <div class="form-section grey">
+                            <label>Credentials</label>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" ng-model="login.email"  required/>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Password</label>
+                                        <input type="password" class="form-control" ng-model="login.password" required/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 col-cells">
+                <div class="page-sidebar grey">
+                    <div class="page-headline register-faq-headline">
+                        <p>Selling FAQ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

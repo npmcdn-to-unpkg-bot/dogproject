@@ -1,0 +1,134 @@
+<main class="review-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="page-headline">
+                    <h1>Leave a Review</h1>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-md-8 col-lg-8 col-sm-8">
+                <form name="leaveReviewForm" ng-submit="leaveReview(leaveReviewForm,rating)">
+                    <div class="page-section seller-details">
+                        <p>Thanks for purchasing a dog from</p>
+                        <h3>Caile Ditterich</h3>
+                        <p>They have requested review from you, please be honest in your rating. As you have ability to help promote responsible dog breeding and selling.</p>
+                    </div>
+                    <div class="page-section">
+                        <div class="page-overall-ratings">
+                            <ul class="list-unstyled ratings">
+                                <li>
+                                    <span class="question">What was the overall seller like?</span>
+                                    <span class="pull-right"><uib-rating ng-model="rating.rating1"
+                                                                                         max="5" state-on="'fa fa-star on'"
+                                                                                         state-off="'fa fa-star off'"
+                                                                                         aria-labelledby="custom-icons-1"></uib-rating><span
+                                            class="overall">{{rating.rating1}}/5</span></span>
+                                </li>
+                                <li>
+                                    <span class="question">What was overall seller like, you can have a large questions can go to here?</span>
+                                    <span class="pull-right"><uib-rating ng-model="rating.rating2"
+                                                                                         max="5" state-on="'fa fa-star on'"
+                                                                                         state-off="'fa fa-star off'"
+                                                                                         aria-labelledby="custom-icons-1"></uib-rating><span
+                                            class="overall">{{rating.rating2}}/5</span></span>
+                                </li>
+                                <li>
+                                    <span class="question">What was the overall seller like?</span>
+                                    <span class="pull-right"><uib-rating ng-model="rating.rating3"
+                                                                                         max="5" state-on="'fa fa-star on'"
+                                                                                         state-off="'fa fa-star off'"
+                                                                                         aria-labelledby="custom-icons-1"></uib-rating><span
+                                            class="overall">{{rating.rating3}}/5</span></span>
+                                </li>
+                                <li>
+                                    <span class="question">What was the overall seller like?</span>
+                                    <span class="pull-right"><uib-rating ng-model="rating.rating4"
+                                                                                         max="5" state-on="'fa fa-star on'"
+                                                                                         state-off="'fa fa-star off'"
+                                                                                         aria-labelledby="custom-icons-1"></uib-rating><span
+                                            class="overall">{{rating.rating4}}/5</span></span>
+                                </li>
+                                <li>
+                                    <span class="question">What was the overall seller like?</span>
+                                    <span class="pull-right"><uib-rating ng-model="rating.rating5"
+                                                                                         max="5" state-on="'fa fa-star on'"
+                                                                                         state-off="'fa fa-star off'"
+                                                                                         aria-labelledby="custom-icons-1"></uib-rating><span
+                                            class="overall">{{rating.rating5}}/5</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="page-section">
+                        <div class="form-section grey">
+                            <label>User Comments</label>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Your Name</label>
+                                        <input type="text" ng-model="rating.name" required class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>State</label>
+                                        <div class="form-group">
+                                            <div class="btn-group btn-block" uib-dropdown>
+                                                <button id="states" type="button" class="form-control" uib-dropdown-toggle>
+                                                    {{selectedState}} <span class="caret"></span>
+                                                </button>
+                                                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem" ng-repeat="(key,state) in states"><a ng-click="selectState(key,state.id)">{{state.name}}</a></li>
+                                                </ul>
+                                                <input type="hidden" ng-model="rating.state_id" required/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Suburb</label>
+                                        <div class="form-group">
+                                            <div class="btn-group btn-block" uib-dropdown>
+                                                <button id="suburbs" type="button" class="form-control" uib-dropdown-toggle>
+                                                    {{selectedSuburb}} <span class="caret"></span>
+                                                </button>
+                                                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem" ng-repeat="(key,suburb) in suburbs"><a ng-click="selectSuburb(key,suburb.id)">{{suburb.suburb}} ({{suburb.postcode}})</a></li>
+                                                </ul>
+                                                <input type="hidden" ng-model="rating.suburb_id"  required/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>About</label>
+                                <textarea class="form-control" ng-model="rating.about" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>Contact Number</label>
+                                        <input type="number" ng-model="rating.contact_number" required class="form-control" />
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6">
+                                        <label>&nbsp;</label>
+                                        <p>Sometimes we need to verify the review.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default" ng-disabled="leaveReviewForm.$invalid">Rate</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-4 hidden-xs" style="padding-top: 30px;">
+                <img src="img/misc/ad.png"  class="img-responsive"/>
+            </div>
+        </div>
+    </div>
+</main>

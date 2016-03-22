@@ -1,0 +1,105 @@
+.form-control {
+  height: 50px;
+  font-size:16px;
+  padding:0 15px;
+  color: @grey-placeholder;
+  .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.2));
+  border:0;
+
+  //removing box shadow
+  &:focus,
+  &:active,
+  &:hover {
+    .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.2));
+    border:0;
+  }
+
+  &::-webkit-input-placeholder { color: @grey-placeholder; }
+  &::-moz-placeholder { color: @grey-placeholder; } /* firefox 19+ */
+  &:-ms-input-placeholder { color: @grey-placeholder; } /* ie */
+}
+.form-section {
+
+  padding:30px;
+
+  //form inputs inside of form section
+  .form-control {
+    height: 40px;
+    .box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.2));
+  }
+
+  //section label style
+  label {
+    width: 100%;
+    .font-formatting(14px,400,14px);
+    margin-bottom: 30px;
+
+    span {
+      .font-formatting(12px,400,14px);
+    }
+  }
+
+  //input label style
+  .form-group {
+
+    .form-control {
+      .font-formatting(12px,400,12px);
+    }
+
+    margin-bottom: 30px;
+
+    label {
+      .font-formatting(12px,400,12px);
+      margin-bottom: 10px;
+
+      span {
+        color: @grey-text-4;
+      }
+    }
+
+    input[type="checkbox"] {
+      margin:-1px 0 0;
+      margin-left: -20px;
+    }
+
+    textarea {
+      width:100%;
+      height:150px;
+      max-width: 100% !important;
+      padding:15px;
+    }
+
+    &.no-margin {
+      margin-bottom: 0;
+    }
+  }
+
+  &.grey {
+    margin-bottom: 30px;
+    background-color: @grey-background-1;
+  }
+
+  &.dark-grey {
+    background-color: @grey-background-2;
+  }
+}
+
+//tags styles
+.tags {
+
+  margin-top:15px;
+
+  ul {
+
+    li {
+
+      a {
+
+        i {
+
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}

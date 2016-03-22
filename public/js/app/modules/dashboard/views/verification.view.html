@@ -1,0 +1,219 @@
+<div class="page-headline">
+    <h1>Verification</h1>
+</div>
+<div class="page-form breeder-form" ng-show="seller.seller.type == 'verified'">
+    <form name="verificationForm" ng-submit="verifySeller(verification,proof)">
+        <div class="form-section grey">
+            <label>Breeder Verification</label>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <label>Registered Breeder With</label>
+
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="verification" type="button" class="form-control" uib-dropdown-toggle>
+                                {{selectedOrganisation}} <span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="verification">
+                                <li role="menuitem"><a ng-click="selectOrganisation(1)">Organisation 1</a></li>
+                                <li role="menuitem"><a ng-click="selectOrganisation(2)">Organisation 2</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="verification.type" required/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6">
+                        <label>Registration Number</label>
+                        <input type="number" required ng-model="verification.number" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default btn-sm" style="width:100px;">
+                    Add Proof
+                    <input type="file" ngf-select ng-model="proof"  name="proof" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                </button>
+                <span class="btn-note" ng-show="!proof">Adding proof will speed up the verification process</span>
+                <span class="btn-note" ng-show="proof">You have selected: {{proof.name}}</span>
+            </div>
+        </div>
+        <div class="form-section grey">
+            <label>Part of Dog Association?</label>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Which Association</label>
+
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="association" type="button" class="form-control" uib-dropdown-toggle>
+                                Button dropdown <span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="association">
+                                <li role="menuitem"><a href="#">Action</a></li>
+                                <li role="menuitem"><a href="#">Another action</a></li>
+                                <li role="menuitem"><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Association Number</label>
+                        <input type="number" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default btn-sm" style="width:100px;">Add</button>
+                <span class="btn-note">Add another association</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="terms" ng-model="terms" required/> I agree to all Petagree <a>Terms & Conditions</a>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" ng-disabled="verificationForm.$invalid">Verify</button>
+        </div>
+    </form>
+</div>
+<div class="page-form hobbie-breeder-form" ng-show="seller.seller.type == 'hobby'">
+    <form>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.</p>
+
+        <div class="form-section grey">
+            <label>Hobbie Breeder Questionaire</label>
+
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree and have read Oscars Law<a style="margin-left: 30px;">Learn
+                        More</a>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-section grey">
+            <label>Part of Dog Association?</label>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Which Association</label>
+
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="association-2" type="button" class="form-control" uib-dropdown-toggle>
+                                Button dropdown <span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="association-2">
+                                <li role="menuitem"><a href="#">Action</a></li>
+                                <li role="menuitem"><a href="#">Another action</a></li>
+                                <li role="menuitem"><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li role="menuitem"><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Association Number</label>
+                        <input type="number" class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default">Add</button>
+                <span class="btn-note">Add another association</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"/> I agree to all Petagree <a>Terms & Conditions</a>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default">Verify</button>
+        </div>
+    </form>
+</div>

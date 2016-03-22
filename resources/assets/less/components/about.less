@@ -1,0 +1,63 @@
+.about-page {
+
+  .about-italic {
+
+    p{
+      .font-formatting(24px,500,32px);
+      font-style: italic;
+    }
+  }
+
+  .about-normal {
+    p {
+      .font-formatting(14px,400,22px);
+    }
+  }
+
+  .about-social {
+
+    li {
+
+      padding:0 10px;
+
+      a{
+        color: @white;
+        .border-radius(10px);
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 10px 25px 10px 10px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        .font-formatting(12px,600,20px);
+        background-color: @grey-background-5;
+        .box-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+
+        &.facebook {
+          background-color: @facebook;
+        }
+
+        &.twitter {
+          background-color: @twitter;
+        }
+        &.pinterest {
+          background-color: @pinterest;
+        }
+
+
+        i {
+          margin-right:25px;
+          font-size: 20px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+
+  .contact-about-headline {
+    padding:30px;
+
+    p {
+      .font-formatting(16px,600);
+    }
+  }
+}

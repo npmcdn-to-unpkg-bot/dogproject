@@ -1,0 +1,73 @@
+<div class="page-headline">
+    <h1>Ratings <span class="pull-right"><button class="btn btn-default btn-sm" ng-click="open()" bynd-ui-modal="request-review" scope-forward="{{emailFields}}">Request Reviews</button></span></h1>
+</div>
+<div class="page-section dash-border" ng-show="seller.seller.review.length">
+    <div class="page-section-headline">
+        <h4>Your Overall Ratings</h4>
+    </div>
+    <div class="page-overall-ratings">
+        <ul class="list-unstyled ratings">
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating1"
+                                                                     max="5" state-on="'fa fa-star on'"
+                                                                     state-off="'fa fa-star off'"
+                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating1}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating2"
+                                                                     max="5" state-on="'fa fa-star on'"
+                                                                     state-off="'fa fa-star off'"
+                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating2}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating3"
+                                                                     max="5" state-on="'fa fa-star on'"
+                                                                     state-off="'fa fa-star off'"
+                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating3}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating4"
+                                                                     max="5" state-on="'fa fa-star on'"
+                                                                     state-off="'fa fa-star off'"
+                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating4}}/5</span></span>
+            </li>
+            <li>
+                <span class="question">What was the overall seller like?</span>
+                                <span class="pull-right"><uib-rating readonly="true" ng-model="rating5"
+                                                                     max="5" state-on="'fa fa-star on'"
+                                                                     state-off="'fa fa-star off'"
+                                                                     aria-labelledby="custom-icons-1"></uib-rating><span
+                                        class="overall">{{rating5}}/5</span></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="page-stats rating-stats text-right" ng-show="seller.seller.review.length">
+    <ul class="list-inline" style="margin-right: 15px;">
+        <li>Current Rating<span>{{(rating1 + rating2 + rating3 + rating4 + rating5) / 5}} / 5</span></li>
+    </ul>
+</div>
+<div class="comments-and-ratings" style="margin-bottom: 60px;">
+    <div class="page-section-headline">
+        <h4>Most Recent Comment</h4>
+    </div>
+    <div class="comment" ng-repeat="comment in seller.seller.review">
+        <div class="comment-body">
+            <p>{{comment.about}}</p>
+        </div>
+        <div class="rating-body">
+            <p>{{comment.name}} - Kempsey, NSW - {{comment.created_at | date:'medium'}}</p>
+        </div>
+    </div>
+    <div class="read-more">
+        <a>Read More Ratings</a>
+    </div>
+</div>

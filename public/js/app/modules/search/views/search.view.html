@@ -1,0 +1,209 @@
+<main class="search-page">
+    <div class="container">
+        <div class="row row-table">
+            <div class="col-md-9 col-lg-9 col-sm-8 col-cells">
+                <div class="search-headline page-headline">
+                    <h1>Showing all dogs
+                        <span class="pull-right page-headline-addon">All prices are in Aust. Dollar
+                            <ul class="list-inline pull-right">
+                                <li><i class="fa fa-male"></i>Male</li>
+                                <li><i class="fa fa-female"></i>Female</li>
+                            </ul>
+                        </span>
+                    </h1>
+                </div>
+                <div class="search-results">
+                    <div class="search-item" ng-repeat="dog in filteredDogs">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="img-overlay">
+                                    <img src="img/misc/home/puppy.png"/>
+
+                                    <div class="overlay-info">
+                                        <a ui-sref="dogs({slug: dog.slug})">View Dog</a>
+                                    </div>
+                                </figure>
+                            </div>
+                            <div class="media-body item-body">
+                                <div class="media-heading item-heading">
+                                    <p>
+                                        <a ui-sref="dogs({slug: dog.slug})">{{dog.name}} <span ng-show="dog.name">-</span> {{dog.breed.breed}}</a>
+                                        <span class="pull-right">
+                                            <span ng-show="dog.shelter != null" class="label label-danger">Rescue</span>
+                                            <span ng-show="dog.owner != null" class="item-price">{{dog.cost | currency}}</span>
+                                        </span>
+                                    </p>
+
+                                    <p class="item-info">{{dog.owner.suburb.suburb}}, {{dog.owner.state.abbreviation}}</p>
+                                </div>
+                                <div class="item-description">
+                                    <p>Quality pure bred Red Cattle Dog puppies. Both parents have excellent
+                                        temperaments, pups have been raised in wonderful conditions with daily cuddles
+                                        from our....</p>
+                                </div>
+                                <div class="item-footer">
+                                    <p>
+                                        <i class="fa fa-male"></i>
+                                        <span ng-show="dog.type_of_listing == 'single' || dog.type_of_listing == 'mature'">{{dog.birth_date}}</span>
+                                        <span ng-show="dog.type_of_listing == 'litter'">M: {{dog.male_qty - dog.male_sold}} F: {{dog.female_qty - dog.female_sold}}</span>
+                                        <span class="pull-right" ng-show="dog.shelter != null">
+                                            <i></i>
+                                            <span class="item-owner-name">Fitzroy Rescue Shelter -</span>
+                                            <a class="item-link">Visit Website</a>
+                                        </span>
+                                        <span class="pull-right" ng-show="dog.owner != null">
+                                            <i></i>
+                                            <span class="item-owner-name">{{dog.owner.users.first_name}}&nbsp;{{dog.owner.users.last_name}} - </span>
+                                            <span ng-init="x = 2">
+                                                <uib-rating readonly="true" ng-model="x" max="5" state-on="'fa fa-star on'" state-off="'fa fa-star off'" aria-labelledby="custom-icons-1"></uib-rating>
+                                            </span>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-pagination">
+                    <uib-pagination
+                            ng-model="currentPage"
+                            total-items="dogs.length"
+                            max-size="maxSize"
+                            boundary-links="true">
+                    </uib-pagination>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-8 col-cells">
+                <div class="search-filter">
+                    <form name="filterForm" ng-submit="updateFilters(search)">
+                        <div class="page-headline filter-headline">
+                            <p>Filter Search</p>
+                        </div>
+                        <div class="filters filter-tag">
+                            <div class="form-group">
+                                <bynd-input-tag tags="search.tags"></bynd-input-tag>
+                            </div>
+                        </div>
+                        <div class="filters filter-checkbox padding-v-15">
+                            <div class="form-group bordered">
+                                <label>Dog Type</label>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.type_of_listing[0]" ng-true-value="'single'"  type="checkbox"> Puppy
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.type_of_listing[1]" ng-true-value="'rescue'"  type="checkbox"> Rescue
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.type_of_listing[2]" ng-true-value="'mature'" type="checkbox"> Mature
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.type_of_listing[3]" ng-true-value="'foster'" type="checkbox"> Foster
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filters filter-checkbox padding-v-15">
+                            <div class="form-group bordered">
+                                <label>Sex</label>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.sex[0]" ng-true-value="'M'"  type="checkbox"> Male
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.sex[1]" ng-true-value="'F'"  type="checkbox"> Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filters filter-checkbox padding-v-15">
+                            <div class="form-group bordered">
+                                <label>States</label>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[0]" ng-true-value="7" ng-checked="search.state_id[0] == 7" type="checkbox"> VIC
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[1]" ng-true-value="2" ng-checked="search.state_id[1] == 2" type="checkbox"> NSW
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[2]" ng-true-value="6" ng-checked="search.state_id[2] == 6" type="checkbox"> TAS
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[3]" ng-true-value="3" ng-checked="search.state_id[3] == 3" type="checkbox"> NT
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[4]" ng-true-value="4" ng-checked="search.state_id[4] == 4" type="checkbox"> QLD
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[5]" ng-true-value="5" ng-checked="search.state_id[5] == 5" type="checkbox"> SA
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[6]" ng-true-value="8" ng-checked="search.state_id[6] == 8" type="checkbox"> WA
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input ng-model="search.state_id[7]" ng-true-value="1" ng-checked="search.state_id[7] == 1" type="checkbox"> ACT
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filters filter-range bordered padding-v-15">
+                            <div class="form-group">
+                                <label>Price Range</label>
+                                <bynd-input-slider id="slider" no-ui-slider="{start:[1000,9000],range:{'min':1,'max':10000},connect:true}" ng-model="search.cost"></bynd-input-slider>
+                            </div>
+                        </div>
+                        <div class="filters filter-update">
+                            <div class="form-group">
+                                <button class="btn btn-default filters-update">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

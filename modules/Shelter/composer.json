@@ -1,0 +1,27 @@
+{
+    "name": "pingpong-modules\/shelter",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Shelter\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\Shelter\\Repositories\\Contracts\\ShelterRepositoryInterface",
+            "Modules\\Shelter\\Repositories\\Contracts\\ShelterEnquiryRepositoryInterface",
+            "Modules\\Shelter\\Repositories\\Contracts\\ShelterKeyMemberRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\Shelter\\Repositories\\Eloquent\\ShelterRepository",
+            "Modules\\Shelter\\Repositories\\Eloquent\\ShelterEnquiryRepository",
+            "Modules\\Shelter\\Repositories\\Eloquent\\ShelterKeyMemberRepository"
+        ]
+    }
+}

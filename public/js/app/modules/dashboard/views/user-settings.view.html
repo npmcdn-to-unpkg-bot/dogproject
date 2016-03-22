@@ -1,0 +1,141 @@
+<div class="page-headline">
+    <h1>User Settings</h1>
+</div>
+<div class="page-form">
+    <form name="userSettings" ng-submit="updateUser(seller,seller.seller,avatar,password)">
+        <div class="form-section grey">
+            <label>User Details</label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>First Name</label>
+                        <input type="text" ng-model="seller.first_name" class="form-control" required/>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Last Name</label>
+                        <input type="text" ng-model="seller.last_name" class="form-control" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" ng-model="seller.seller.address" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>State</label>
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="state" type="button" class="form-control" uib-dropdown-toggle>
+                                {{selectedState}}<span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="state">
+                                <li role="menuitem" ng-repeat="state in states"><a ng-click="selectState(state)">{{state.name}}</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="seller.seller.state_id"  required/>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Suburb</label>
+                        <div class="btn-group btn-block" uib-dropdown>
+                            <button id="suburb" type="button" class="form-control" uib-dropdown-toggle>
+                                {{selectedSuburb}}<span class="caret"></span>
+                            </button>
+                            <ul uib-dropdown-menu role="menu" aria-labelledby="suburb">
+                                <li role="menuitem" ng-repeat="suburb in suburbs"><a ng-click="selectSuburb(suburb)">{{suburb.suburb}}</a></li>
+                            </ul>
+                            <input type="hidden" ng-model="seller.seller.suburb_id"  required/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Email</label>
+                        <input ng-model="seller.email" type="email" class="form-control" required/>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Contact Number</label>
+                        <input ng-model="seller.contact_number" type="text" class="form-control" required/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6">
+                <div class="form-section grey" style="height:200px;">
+                    <label>Avatar</label>
+                    <div class="form-group">
+                        <div class="add-dog-image">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="add-image">
+                                        <img ng-show="userSettings.photo.$valid" ngf-thumbnail="avatar" class="thumb" width="60" height="60">
+                                        <div ng-show="!avatar">+</div>
+                                    </div>
+                                </div>
+                                <div class="media-body" style="vertical-align: middle;">
+                                    <button class="btn btn-default btn-sm">
+                                        Update
+                                        <input type="file" ngf-select ng-model="avatar"  name="photo" accept="image/*" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                                    </button>
+                                    <p style="margin-top:10px">160x160 Pixels Recommended</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6">
+                <div class="form-section grey" style="height:200px;">
+                    <label>Type of Seller</label>
+                    <div class="form-group no-margin">
+                        <div class="form-group">
+                            <div class="btn-group btn-block" uib-dropdown>
+                                <button id="single-button" type="button" class="form-control" uib-dropdown-toggle>
+                                    Button dropdown <span class="caret"></span>
+                                </button>
+                                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                    <li role="menuitem"><a href="#">Action</a></li>
+                                    <li role="menuitem"><a href="#">Another action</a></li>
+                                    <li role="menuitem"><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li role="menuitem"><a href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <label>Changing this will remove all listed dogs & require a review.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section grey">
+            <label>About User</label>
+            <div class="form-group">
+                <label>About</label>
+                <textarea ng-model="seller.seller.about" class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-section grey">
+            <label>Update Password</label>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Password</label>
+                        <input type="password" ng-model="password.password" class="form-control"/>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-sm-6">
+                        <label>Confirm Password</label>
+                        <input type="password" class="form-control" ng-model="password.password_confirmation"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" ng-disabled="userSettings.$invalid">Update</button>
+        </div>
+    </form>
+</div>

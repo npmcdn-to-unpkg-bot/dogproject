@@ -1,0 +1,29 @@
+{
+    "name": "pingpong-modules\/dog",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Dog\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\Dog\\Repositories\\Contracts\\DogRepositoryInterface",
+            "Modules\\Dog\\Repositories\\Contracts\\DogRepositoryInterface",
+            "Modules\\Dog\\Repositories\\Contracts\\DogMotherRepositoryInterface",
+            "Modules\\Dog\\Repositories\\Contracts\\DogFatherRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\Dog\\Repositories\\Eloquent\\DogRepository",
+            "Modules\\Dog\\Repositories\\Eloquent\\DogRepository",
+            "Modules\\Dog\\Repositories\\Eloquent\\DogMotherRepository",
+            "Modules\\Dog\\Repositories\\Eloquent\\DogFatherRepository"
+        ]
+    }
+}

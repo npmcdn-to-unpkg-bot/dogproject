@@ -1,0 +1,23 @@
+{
+    "name": "pingpong-modules\/other",
+    "description": "",
+    "authors": [
+        {
+            "name": "Pingpong Labs",
+            "email": "pingpong.labs@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Other\\": ""
+        }
+    },
+    "register": {
+        "interface": [
+            "Modules\\Other\\Repositories\\Contracts\\ContactRepositoryInterface"
+        ],
+        "repository": [
+            "Modules\\Other\\Repositories\\Eloquent\\ContactRepository"
+        ]
+    }
+}

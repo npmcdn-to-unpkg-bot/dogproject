@@ -1,0 +1,15 @@
+{
+    "name": "ShelterComments",
+    "alias": "sheltercomments",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\ShelterComments\\Providers\\ShelterCommentsServiceProvider"
+    ],
+    "aliases":{},
+    "files": [
+        "start.php"
+    ]
+}
